@@ -6,7 +6,7 @@ After=network.target
 User=root
 Group=root
 WorkingDirectory=/tmp
-ExecStart=/usr/bin/go-socks5-server --ip 0.0.0.0 --port 1080 --user change --pass me 
+ExecStart=/usr/bin/go-socks5-server 
 RestartSec=10s
 Restart=always
 

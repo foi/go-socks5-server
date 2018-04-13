@@ -1,19 +1,31 @@
 package main
 
 import socks5 "github.com/armon/go-socks5"
-import "fmt"
-import "flag"
+import ( "fmt"
+         "encoding/json"
+         "os"
+)
+
+type Config struct {
+    Ip string
+    Port string
+    User string
+    Pass string
+}
 
 func main(){
-  ip := flag.String("ip", "0.0.0.0", "")
-  port := flag.String("port", "1080", "")
-  user := flag.String("user", "changeme", "username")
-  pass := flag.String("pass", "andme", "password")
-
-  flag.Parse()
+  file, _ := os.Open("/etc/go-socks5-server.config.json")
+  defer file.Close()
+  fmt.Println(&file)
+  decoder := json.NewDecoder(file)
+  configuration := Config{}
+  err := decoder.Decode(&configuration)
+  if err != nil {
+    panic(err)
+  }
 
   creds := socks5.StaticCredentials{
-    *user: *pass,
+    configuration.User: configuration.Pass,
   }
 
   cator := socks5.UserPassAuthenticator{Credentials: creds}
@@ -30,7 +42,7 @@ func main(){
     panic(err)
   }
 
-  if err := server.ListenAndServe("tcp", fmt.Sprintf("%s:%s", *ip, *port));
+  if err := server.ListenAndServe("tcp", fmt.Sprintf("%s:%s", configuration.Ip, configuration.Port));
   err != nil {
     panic(err)
   }
