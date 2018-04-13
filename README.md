@@ -33,4 +33,4 @@ sudo systemctl enable go-socks5-server
 
 ```
 
-### Do not forget to change the config in /etc/go-socks5-server.config.json
+### Do not forget to change the config in /etc/go-socks5-server.config.json and restart service
