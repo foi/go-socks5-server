@@ -4,6 +4,8 @@ Because it is primitive but modern
 
 Socks5 proxy server written on Go (based on: https://github.com/armon/go-socks5)
 
+Running as service only on systemd based OS. 
+
 ## how to install
 
 ### Debian/Ubuntu
