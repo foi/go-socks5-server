@@ -17,7 +17,7 @@ cd /tmp
 wget https://github.com/foi/go-socks5-server/releases/download/1.0/go-socks5-server_1.0.0-1_amd64.deb
 sudo dpkg -i go-socks5-server_1.0.0-1_amd64.deb
 # edit config
-# nano /etc/go-socks5-server.config.json
+# sudo nano /etc/go-socks5-server.config.json
 sudo systemctl daemon-reload
 sudo systemctl start go-socks5-server
 sudo systemctl enable go-socks5-server
@@ -30,9 +30,21 @@ cd /tmp
 curl -L -O https://github.com/foi/go-socks5-server/releases/download/1.0/go-socks5-server-1.0.0-1.x86_64.rpm
 yum install -y go-socks5-server-1.0.0-1.x86_64.rpm
 # edit config
-# nano /etc/go-socks5-server.config.json
+# sudo nano /etc/go-socks5-server.config.json
 sudo systemctl daemon-reload
 sudo systemctl start go-socks5-server
+sudo systemctl enable go-socks5-server
+
+```
+
+### Arch linux/Manjaro
+
+```
+yaourt go-socks5-server-bin
+# edit config
+# sudo nano /etc/go-socks5-server.config.json
+sudo systemctl daemon-reload
+sudo systemctl restart go-socks5-server
 sudo systemctl enable go-socks5-server
 
 ```
