@@ -1,6 +1,8 @@
 # go socks5 server
 
-Because it is primitive but modern
+Because it is primitive but modern.
+
+Authorization via config (/etc/go-socks5-server.config.json), not via linux PAM. 
 
 Socks5 proxy server written on Go (based on: https://github.com/armon/go-socks5)
 
