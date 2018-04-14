@@ -10,7 +10,7 @@ Running as service only on systemd based OS.
 
 ## how to install
 
-### Debian/Ubuntu
+### Debian 9+/Ubuntu 16.04+
 
 ```
 cd /tmp
@@ -23,7 +23,7 @@ sudo systemctl start go-socks5-server
 sudo systemctl enable go-socks5-server
 
 ```
-### Centos/Fedora
+### Centos 7/Fedora
 
 ```
 cd /tmp
