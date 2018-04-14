@@ -1,6 +1,8 @@
 {
   "ip": "0.0.0.0",
   "port": "1080",
-  "user": "change",
-  "pass": "me"
+  "credentials": [
+    { "user": "abc", "pass": "xyz" },
+    { "user": "abv", "pass": "eyuya" }
+  ]
 }

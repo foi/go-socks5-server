@@ -2,13 +2,18 @@
 
 Because it is primitive but modern.
 
-Authorization via config (/etc/go-socks5-server.config.json), not via linux PAM. 
+Authorization via config (/etc/go-socks5-server.config.json), not via linux PAM.
 
 Socks5 proxy server written on Go (based on: https://github.com/armon/go-socks5)
 
-Running as service only on systemd based OS. 
 
 ## how to install
+
+### CentOS6
+
+```
+TODO
+```
 
 ### Debian 9+/Ubuntu 16.04+
 
