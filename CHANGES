@@ -1,0 +1,6 @@
+1.0.0 - 13.04.2018
+  * initial release
+
+1.1.0 - 14.04.2018
+  * support array of users
+  * add sysvinit script for centos 6

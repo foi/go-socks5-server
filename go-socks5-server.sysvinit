@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# go-socks5-server Socks proxy server written in go
+#
+# chkconfig: 2345 90 60
+# description: Socks proxy server written in go
+# processname: go-socks5-server
+
+RETVAL=0
+START_SERVER=/usr/bin/go-socks5-server
+SERVICE_NAME=go-socks5-server
+
+start() {
+	$(exec $START_SERVER) &
+        return $RETVAL
+}
+
+stop() {
+        killall $SERVICE_NAME
+        rerurn $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    *)
+        echo "Usage: service go-socks5-server {start|stop}"
+        exit 1
+        ;;
+esac
+exit $?
