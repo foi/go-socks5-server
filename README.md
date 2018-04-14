@@ -16,6 +16,7 @@ curl -L -O https://github.com/foi/go-socks5-server/releases/download/1.1/go-sock
 sudo yum install go-socks5-server-1.1.0-1.x86_64.legacy.rpm
 sudo chkconfig --add go-socks5-server
 sudo chkconfig go-socks5-server on
+sudo service go-socks5-server start
 # open port in firewall
 ```
 
