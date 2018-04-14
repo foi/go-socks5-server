@@ -8,7 +8,7 @@ Socks5 proxy server written on Go (based on: https://github.com/armon/go-socks5)
 
 ## how to install
 
-### CentOS6
+### CentOS6 (tested) or another sysvinit legacy OSes (not tested)
 
 ```
 cd /tmp
