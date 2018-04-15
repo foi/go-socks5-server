@@ -11,7 +11,7 @@ START_SERVER=/usr/bin/go-socks5-server
 SERVICE_NAME=go-socks5-server
 
 start() {
-	$(exec $START_SERVER) &
+	$(exec $START_SERVER >> /var/log/go-socks5-server.log) &
         return $RETVAL
 }
 
