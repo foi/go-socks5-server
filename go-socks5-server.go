@@ -1,11 +1,11 @@
 package main
 
-import "github.com/armon/go-socks5"
 import (
 	"encoding/json"
 	"fmt"
 	"os"
 	"flag"
+	"github.com/armon/go-socks5"
 )
 
 const CFG = "/etc/go-socks5-server.config.json"
