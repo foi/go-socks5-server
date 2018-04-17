@@ -1,11 +1,14 @@
 package main
 
-import socks5 "github.com/armon/go-socks5"
 import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"flag"
+	"github.com/armon/go-socks5"
 )
+
+const CFG = "/etc/go-socks5-server.config.json"
 
 type Config struct {
 	Ip          string
@@ -19,11 +22,19 @@ type Credentials struct {
 }
 
 func main() {
-	file, _ := os.Open("/etc/go-socks5-server.config.json")
+	path := flag.String("config", CFG, "config file path")
+	flag.Parse()
+
+	file, err := os.Open(*path)
 	defer file.Close()
+
+	if err != nil {
+		panic(err)
+	}
+
 	decoder := json.NewDecoder(file)
 	configuration := Config{}
-	err := decoder.Decode(&configuration)
+	err = decoder.Decode(&configuration)
 	if err != nil {
 		panic(err)
 	}
@@ -34,10 +45,12 @@ func main() {
 		creds[c.User] = c.Pass
 	}
 
-	cator := socks5.UserPassAuthenticator{Credentials: creds}
-
 	conf := &socks5.Config{
-		AuthMethods: []socks5.Authenticator{cator},
+		AuthMethods: []socks5.Authenticator{
+			socks5.UserPassAuthenticator{
+				Credentials: creds,
+			},
+		},
 	}
 
 	server, err := socks5.New(conf)
@@ -46,9 +59,16 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(fmt.Sprintf("go-socks5-server started successfully: ip %s port %s", configuration.Ip, configuration.Port))
-
-	if err := server.ListenAndServe("tcp", fmt.Sprintf("%s:%s", configuration.Ip, configuration.Port)); err != nil {
+	if err := server.ListenAndServe("tcp",
+		fmt.Sprintf("%s:%s",
+			configuration.Ip,
+			configuration.Port)); err != nil {
 		panic(err)
+
+	} else {
+		fmt.Println(
+			fmt.Sprintf("go-socks5-server started successfully: ip %s port %s",
+				configuration.Ip,
+				configuration.Port))
 	}
 }
