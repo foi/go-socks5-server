@@ -35,7 +35,7 @@ sudo systemctl daemon-reload
 sudo systemctl start go-socks5-server
 sudo systemctl enable go-socks5-server
 # open port in firewall
-ufw allow 22 
+sudo ufw allow 22 
 sudo ufw allow YOUR_CONFIGURED_GO_SOCKS5_SERVER_PORT
 sudo ufw disable && sudo ufw enable
 ```
