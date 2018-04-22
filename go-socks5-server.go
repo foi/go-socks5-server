@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 	"flag"
-	"github.com/armon/go-socks5"
+	"github.com/genevieve/go-socks5"
 )
 
 const CFG = "/etc/go-socks5-server.config.json"
@@ -54,21 +54,14 @@ func main() {
 	}
 
 	server, err := socks5.New(conf)
-
 	if err != nil {
 		panic(err)
 	}
 
-	if err := server.ListenAndServe("tcp",
-		fmt.Sprintf("%s:%s",
-			configuration.Ip,
-			configuration.Port)); err != nil {
-		panic(err)
+	fmt.Println(fmt.Sprintf("Starting server on: %s:%s",configuration.Ip, configuration.Port));
 
-	} else {
-		fmt.Println(
-			fmt.Sprintf("go-socks5-server started successfully: ip %s port %s",
-				configuration.Ip,
-				configuration.Port))
+	if err := server.ListenAndServe("tcp", fmt.Sprintf("%s:%s", configuration.Ip, configuration.Port));
+  err != nil {
+		panic(err)
 	}
 }
