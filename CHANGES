@@ -6,3 +6,4 @@
   * add sysvinit script for centos 6
 1.2.0 - 22.04.2018
   * more verbose output about errors by genevieve/go-socks5
+  * added config path via --config
