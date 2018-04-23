@@ -1,5 +1,5 @@
 {
-  "ip": "0.0.0.0",
+  "ip": "",
   "port": "1080",
   "credentials": [
     { "user": "abc", "pass": "xyz" },
