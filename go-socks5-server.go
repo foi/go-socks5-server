@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"net"
 	"flag"
 	"github.com/genevieve/go-socks5"
 )
@@ -60,7 +61,7 @@ func main() {
 
 	fmt.Println(fmt.Sprintf("Starting server on: %s:%s",configuration.Ip, configuration.Port));
 
-	if err := server.ListenAndServe("tcp", fmt.Sprintf("%s:%s", configuration.Ip, configuration.Port));
+	if err := server.ListenAndServe("tcp", net.JoinHostPort(configuration.Ip, configuration.Port));
   err != nil {
 		panic(err)
 	}
