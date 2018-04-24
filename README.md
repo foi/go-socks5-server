@@ -12,7 +12,7 @@ Socks5 proxy server written on Go (based on: https://github.com/armon/go-socks5)
 
 ```
 cd /tmp
-curl -L -O https://github.com/foi/go-socks5-server/releases/download/1.1/go-socks5-server-1.1.0-1.x86_64.legacy.rpm
+curl -L -O https://github.com/foi/go-socks5-server/releases/download/v1.1.0/go-socks5-server-1.1.0-1.x86_64.legacy.rpm
 sudo yum install go-socks5-server-1.1.0-1.x86_64.legacy.rpm
 sudo chkconfig --add go-socks5-server
 sudo chkconfig go-socks5-server on
@@ -27,7 +27,7 @@ iptables -A INPUT -i eth0 -p tcp -m tcp --dport YOUR_CONFIGURED_GO_SOCKS5_SERVER
 
 ```
 cd /tmp
-wget https://github.com/foi/go-socks5-server/releases/download/1.1/go-socks5-server_1.1.0-1_amd64.deb
+wget https://github.com/foi/go-socks5-server/releases/download/v1.1.0/go-socks5-server_1.1.0-1_amd64.deb
 sudo dpkg -i go-socks5-server_1.1.0-1_amd64.deb
 # edit config
 # sudo nano /etc/go-socks5-server.config.json
@@ -43,7 +43,7 @@ sudo ufw disable && sudo ufw enable
 
 ```
 cd /tmp
-curl -L -O https://github.com/foi/go-socks5-server/releases/download/1.1/go-socks5-server-1.1.0-1.x86_64.rpm
+curl -L -O https://github.com/foi/go-socks5-server/releases/download/v1.1.0/go-socks5-server-1.1.0-1.x86_64.rpm
 yum install -y go-socks5-server-1.1.0-1.x86_64.rpm
 # edit config
 # sudo nano /etc/go-socks5-server.config.json
