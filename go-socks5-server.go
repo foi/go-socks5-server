@@ -6,7 +6,7 @@ import (
 	"os"
 	"net"
 	"flag"
-	"github.com/genevieve/go-socks5"
+	"github.com/pragus/go-socks5"
 )
 
 const CFG = "/etc/go-socks5-server.config.json"
