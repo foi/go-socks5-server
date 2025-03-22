@@ -3,12 +3,25 @@ Description=Go Socks5 server
 After=network.target
 
 [Service]
-User=root
-Group=root
-WorkingDirectory=/tmp
-ExecStart=/usr/bin/go-socks5-server 
-RestartSec=10s
-Restart=always
+User=go-socks5-server
+Group=go-socks5-server
+ExecStart=/usr/bin/go-socks5-server
+Restart=on-failure
+TimeoutStopSec=5s
+LimitNOFILE=1048576
+ProtectSystem=strict
+ProtectHome=tmpfs
+PrivateTmp=True
+PrivateDevices=True
+ProtectKernelTunables=True
+ProtectKernelModules=True
+ProtectKernelLogs=True
+ProtectControlGroups=True
+MemoryDenyWriteExecute=True
+LockPersonality=True
+RestrictRealtime=True
+ProtectClock=True
+RestartSec=10
 
 [Install]
 WantedBy=multi-user.target

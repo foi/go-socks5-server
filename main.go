@@ -2,14 +2,17 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
-	"os"
-	"net"
 	"flag"
+	"fmt"
+	"net"
+	"os"
+
 	"github.com/pragus/go-socks5"
 )
 
-const CFG = "/etc/go-socks5-server.config.json"
+const config = "/etc/go-socks5-server.config.json"
+
+var Version string
 
 type Config struct {
 	Ip          string
@@ -23,15 +26,20 @@ type Credentials struct {
 }
 
 func main() {
-	path := flag.String("config", CFG, "config file path")
+	path := flag.String(
+		"config",
+		config,
+		"config file path",
+	)
 	flag.Parse()
 
 	file, err := os.Open(*path)
-	defer file.Close()
 
 	if err != nil {
 		panic(err)
 	}
+
+	defer file.Close()
 
 	decoder := json.NewDecoder(file)
 	configuration := Config{}
@@ -59,10 +67,14 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(fmt.Sprintf("Starting server on: %s:%s",configuration.Ip, configuration.Port));
+	fmt.Printf(
+		"Starting go-socks5-server (%s) on: %s:%s",
+		Version,
+		configuration.Ip,
+		configuration.Port,
+	)
 
-	if err := server.ListenAndServe("tcp", net.JoinHostPort(configuration.Ip, configuration.Port));
-  err != nil {
+	if err := server.ListenAndServe("tcp", net.JoinHostPort(configuration.Ip, configuration.Port)); err != nil {
 		panic(err)
 	}
 }

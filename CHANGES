@@ -4,6 +4,10 @@
 1.1.0 - 14.04.2018
   * support array of users
   * add sysvinit script for centos 6
+
 1.2.0 - 22.04.2018
   * more verbose output about errors by genevieve/go-socks5
   * added config path via --config
+
+1.2.1 - 22.03.2025
+  * add build scripts

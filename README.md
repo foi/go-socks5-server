@@ -8,21 +8,6 @@ Socks5 proxy server written on Go (based on: https://github.com/armon/go-socks5)
 
 ## how to install
 
-### CentOS6 (tested) or another sysvinit legacy OSes (not tested)
-
-```
-cd /tmp
-curl -L -O https://github.com/foi/go-socks5-server/releases/download/v1.1.0/go-socks5-server-1.1.0-1.x86_64.legacy.rpm
-sudo yum install go-socks5-server-1.1.0-1.x86_64.legacy.rpm
-sudo chkconfig --add go-socks5-server
-sudo chkconfig go-socks5-server on
-# edit config
-# sudo nano /etc/go-socks5-server.config.json
-sudo service go-socks5-server start
-# open port in firewall - eth0 as example!
-iptables -A INPUT -i eth0 -p tcp -m tcp --dport YOUR_CONFIGURED_GO_SOCKS5_SERVER_PORT -j ACCEPT
-```
-
 ### Debian 9+/Ubuntu 16.04+
 
 ```

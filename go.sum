@@ -1,0 +1,5 @@
+github.com/hanwen/go-fuse v1.0.0 h1:GxS9Zrn6c35/BnfiVsZVWmsG803xwE7eVRDvcf/BEVc=
+github.com/hanwen/go-fuse v1.0.0/go.mod h1:unqXarDXqzAk0rt98O2tVndEPIpUgLD9+rwFisZH3Ok=
+github.com/pragus/go-socks5 v0.0.0-20180522161642-18b1543f947d h1:rbeLkWPV5P7tSQSwGggK9nf0kfyENl5OmneUExy+Rdo=
+github.com/pragus/go-socks5 v0.0.0-20180522161642-18b1543f947d/go.mod h1:depK2RQU+ZH71PptuXi8JAsLJT0pwXvOe/G/S8TdvQo=
+golang.org/x/sys v0.0.0-20180830151530-49385e6e1522/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
